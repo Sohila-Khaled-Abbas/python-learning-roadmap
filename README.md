@@ -102,6 +102,8 @@ GitHub Actions validates the contracts, prerequisite graph, chapter data, progre
 
 ## Connected learning
 
+[How the repo, portfolio and profile update automatically](docs/automation-map.md).
+
 - [Data engineering roadmap](https://github.com/Sohila-Khaled-Abbas/data-engineering-learning-roadmap): the parent path; this repository expands its Python stage.
 - [FDE roadmap](https://github.com/Sohila-Khaled-Abbas/forward-deployed-engineer-roadmap): apply Python to API contracts, SQL-backed tools and delivery.
 - [PixelFed](https://github.com/Sohila-Khaled-Abbas/pixelfed-analytics-engineering): apply data contracts and quality checks.
