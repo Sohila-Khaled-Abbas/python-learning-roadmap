@@ -1,0 +1,1463 @@
+{
+  "schema_version": 1,
+  "title": "Python Learning Roadmap",
+  "owner": "Sohila Khaled Abbas",
+  "updated": "2026-10-31",
+  "pacing": {
+    "weeks": 12,
+    "hours_per_week": 7,
+    "note": "Suggested 84-hour learning budget, not a deadline. The ML node is optional. Reallocate time using your diagnostic and exit checks."
+  },
+  "phases": [
+    {
+      "id": "workspace",
+      "number": "00",
+      "title": "Make Python yours",
+      "weeks": "Week 1",
+      "subtitle": "A light setup. A clear starting point.",
+      "color": "blue"
+    },
+    {
+      "id": "foundations",
+      "number": "01",
+      "title": "Think in Python",
+      "weeks": "Weeks 1–3",
+      "subtitle": "Course chapters 1–6 · small functions, clear reasoning.",
+      "color": "yellow"
+    },
+    {
+      "id": "collections",
+      "number": "02",
+      "title": "Work with real shapes of data",
+      "weeks": "Weeks 3–5",
+      "subtitle": "Course chapters 7–12 · logic, collections, failure.",
+      "color": "yellow"
+    },
+    {
+      "id": "engineering",
+      "number": "03",
+      "title": "From scripts to reliable tools",
+      "weeks": "Weeks 6–7",
+      "subtitle": "Files, modules, tests, and command lines.",
+      "color": "blue"
+    },
+    {
+      "id": "data",
+      "number": "04",
+      "title": "Build on your SQL & BI skills",
+      "weeks": "Weeks 8–9",
+      "subtitle": "Tabular data, quality, joins, and precise metrics.",
+      "color": "purple"
+    },
+    {
+      "id": "delivery",
+      "number": "05",
+      "title": "Connect it. Test it. Ship it.",
+      "weeks": "Weeks 10–12",
+      "subtitle": "APIs, databases, orchestration, and portfolio evidence.",
+      "color": "green"
+    }
+  ],
+  "topics": [
+    {
+      "id": "environment",
+      "phase": "workspace",
+      "title": "Interpreter & virtual environments",
+      "hours": 2,
+      "summary": "Keep each project isolated and make the interpreter explicit.",
+      "bridge": "Use your existing Windows setup. Docker and WSL are optional for this roadmap.",
+      "learn": [
+        "Inspect the installed interpreter before changing anything.",
+        "Create a project .venv and run Python through its explicit path.",
+        "Keep .venv, secrets and generated files out of Git."
+      ],
+      "exercise": "Follow docs/setup-windows.md and print sys.executable from the project interpreter.",
+      "gate": "A fresh terminal runs the tests with the same interpreter, without changing PowerShell policy.",
+      "requires": [],
+      "resources": [
+        "packaging",
+        "python"
+      ],
+      "chapter": null,
+      "cs50": null,
+      "code": "",
+      "pitfalls": [],
+      "note_path": "docs/notes/environment.md"
+    },
+    {
+      "id": "baseline",
+      "phase": "workspace",
+      "title": "A diagnostic, not a restart",
+      "hours": 2,
+      "summary": "Use existing Python exposure as an advantage and verify it with a small task.",
+      "bridge": "Your SQL, Power Query, API and analytics experience gives you useful mental models.",
+      "learn": [
+        "Read a traceback and explain a function input/output.",
+        "Group four EGP transactions with a dict.",
+        "Record which topics need practice; all progress begins unmarked."
+      ],
+      "exercise": "Try exercises/foundations.py tasks 02, 03, 07 and 10 before watching the matching chapters.",
+      "gate": "Explain your solution and edge cases without copying a reference answer.",
+      "requires": [
+        "environment"
+      ],
+      "resources": [
+        "boot",
+        "iti",
+        "cs50"
+      ],
+      "chapter": null,
+      "cs50": null,
+      "code": "",
+      "pitfalls": [],
+      "note_path": "docs/notes/baseline.md"
+    },
+    {
+      "id": "introduction",
+      "phase": "foundations",
+      "title": "Run a program",
+      "hours": 2,
+      "summary": "A program is an ordered set of instructions with observable output.",
+      "bridge": "A query returns rows; a script can coordinate several steps around those rows.",
+      "learn": [
+        "Run a .py file and use print for visible output.",
+        "Distinguish source code from the interpreter that executes it.",
+        "Predict the output before running the program."
+      ],
+      "exercise": "Task 01: format a short pipeline completion message.",
+      "gate": "pipeline_message(\"landing\", 4) returns \"landing: 4 rows\".",
+      "requires": [
+        "baseline"
+      ],
+      "resources": [
+        "boot",
+        "iti",
+        "cs50",
+        "python"
+      ],
+      "chapter": {
+        "number": 1,
+        "start": 221,
+        "label": "03:41",
+        "url": "https://www.youtube.com/watch?v=4M87qBgpafk&t=221s"
+      },
+      "cs50": "0",
+      "code": "def pipeline_message(stage, rows):\n    return f\"{stage}: {rows} rows\"\n\nprint(pipeline_message(\"landing\", 4))",
+      "pitfalls": [
+        "Returning a value and printing a value have different effects."
+      ],
+      "note_path": "docs/notes/introduction.md"
+    },
+    {
+      "id": "variables",
+      "phase": "foundations",
+      "title": "Variables, types & missing values",
+      "hours": 3,
+      "summary": "A name refers to an object; type determines the operations that object supports.",
+      "bridge": "Compare Python None with SQL NULL, and distinguish missingness from zero and an empty string.",
+      "learn": [
+        "Use str, int, float, bool and None deliberately.",
+        "Convert text at input boundaries and inspect types.",
+        "Use integer minor units for these EGP exercises: 100 piastres = 1 EGP."
+      ],
+      "exercise": "Task 02: convert a decimal EGP string to integer piastres; reject fractions below one piastre.",
+      "gate": "\"12.50\" becomes 1250; \"0.001\" and \"NaN\" raise ValueError.",
+      "requires": [
+        "introduction"
+      ],
+      "resources": [
+        "boot",
+        "iti",
+        "cs50",
+        "python"
+      ],
+      "chapter": {
+        "number": 2,
+        "start": 902,
+        "label": "15:02",
+        "url": "https://www.youtube.com/watch?v=4M87qBgpafk&t=902s"
+      },
+      "cs50": "0",
+      "code": "from decimal import Decimal\namount = Decimal(\"12.50\")\npiastres = int(amount * 100)\nprint(piastres)  # 1250; validate precision before int in real input code",
+      "pitfalls": [
+        "bool(\"False\") is True because the string is nonempty.",
+        "Binary floats are unsuitable for exact currency equality."
+      ],
+      "note_path": "docs/notes/variables.md"
+    },
+    {
+      "id": "functions",
+      "phase": "foundations",
+      "title": "Functions & explicit contracts",
+      "hours": 3,
+      "summary": "A function turns named inputs into a useful result with a clear contract.",
+      "bridge": "Think of a reusable Power Query function, but make data dependencies explicit.",
+      "learn": [
+        "Separate input/output from transformation logic.",
+        "Use return values, parameters and small docstrings.",
+        "Specify valid inputs and the result unit."
+      ],
+      "exercise": "Task 03: calculate net revenue from gross and discount piastres.",
+      "gate": "net_revenue(10000, 1500) is 8500; a discount larger than gross is rejected.",
+      "requires": [
+        "variables"
+      ],
+      "resources": [
+        "boot",
+        "iti",
+        "cs50",
+        "python"
+      ],
+      "chapter": {
+        "number": 3,
+        "start": 2586,
+        "label": "43:06",
+        "url": "https://www.youtube.com/watch?v=4M87qBgpafk&t=2586s"
+      },
+      "cs50": "0",
+      "code": "def net_revenue(gross, discount):\n    if not 0 <= discount <= gross:\n        raise ValueError(\"discount outside gross amount\")\n    return gross - discount",
+      "pitfalls": [
+        "A missing return produces None.",
+        "A function that mutates input may surprise its callers."
+      ],
+      "note_path": "docs/notes/functions.md"
+    },
+    {
+      "id": "scope",
+      "phase": "foundations",
+      "title": "Scope & side effects",
+      "hours": 2,
+      "summary": "Local names help a function behave predictably across calls.",
+      "bridge": "Avoid notebook state that makes a cell work only after an undocumented execution order.",
+      "learn": [
+        "Trace local versus module names.",
+        "Pass configuration as a parameter.",
+        "Return a new value rather than modifying a shared dict accidentally."
+      ],
+      "exercise": "Task 04: add a category to a copied record without changing the original.",
+      "gate": "The original dict stays identical after classify_copy(record, \"Food\").",
+      "requires": [
+        "functions"
+      ],
+      "resources": [
+        "boot",
+        "iti",
+        "cs50",
+        "python"
+      ],
+      "chapter": {
+        "number": 4,
+        "start": 4572,
+        "label": "01:16:12",
+        "url": "https://www.youtube.com/watch?v=4M87qBgpafk&t=4572s"
+      },
+      "cs50": null,
+      "code": "def classify_copy(record, category):\n    result = dict(record)\n    result[\"category\"] = category\n    return result",
+      "pitfalls": [
+        "A shallow copy does not clone nested mutable values.",
+        "Mutable default arguments persist between calls."
+      ],
+      "note_path": "docs/notes/scope.md"
+    },
+    {
+      "id": "debugging",
+      "phase": "foundations",
+      "title": "Testing & debugging",
+      "hours": 2,
+      "summary": "A failing example is evidence you can narrow to a specific cause.",
+      "bridge": "Apply your troubleshooting habit: reproduce, inspect, change one thing, verify.",
+      "learn": [
+        "Read a traceback from the final exception back to your call.",
+        "Write a normal, empty and boundary example.",
+        "Keep assertions in tests; use explicit validation in application code."
+      ],
+      "exercise": "Task 05: fix mean_or_none so empty data is meaningful and zero is retained.",
+      "gate": "mean_or_none([]) is None; mean_or_none([0, 10]) is 5.",
+      "requires": [
+        "scope"
+      ],
+      "resources": [
+        "boot",
+        "iti",
+        "cs50",
+        "python"
+      ],
+      "chapter": {
+        "number": 5,
+        "start": 5335,
+        "label": "01:28:55",
+        "url": "https://www.youtube.com/watch?v=4M87qBgpafk&t=5335s"
+      },
+      "cs50": "5",
+      "code": "def mean_or_none(values):\n    return sum(values) / len(values) if values else None\n\nassert mean_or_none([0, 10]) == 5",
+      "pitfalls": [
+        "Do not use bare except to hide a failure.",
+        "assert can be disabled; it is not a production input-validation boundary."
+      ],
+      "note_path": "docs/notes/debugging.md"
+    },
+    {
+      "id": "computing",
+      "phase": "foundations",
+      "title": "Operators & computation",
+      "hours": 2,
+      "summary": "Operators encode arithmetic, precedence and discrete decisions.",
+      "bridge": "ETL batching and reconciliation depend on clear units and correct integer arithmetic.",
+      "learn": [
+        "Explain /, //, %, ** and parentheses.",
+        "Calculate batches without losing a partial batch.",
+        "Define the behavior of zero and invalid batch sizes."
+      ],
+      "exercise": "Task 06: compute the number of API pages from row count and page size.",
+      "gate": "page_count(101, 50) is 3; zero rows is 0; size zero is rejected.",
+      "requires": [
+        "debugging"
+      ],
+      "resources": [
+        "boot",
+        "iti",
+        "cs50",
+        "python"
+      ],
+      "chapter": {
+        "number": 6,
+        "start": 6898,
+        "label": "01:54:58",
+        "url": "https://www.youtube.com/watch?v=4M87qBgpafk&t=6898s"
+      },
+      "cs50": null,
+      "code": "def page_count(rows, size):\n    if rows < 0 or size <= 0:\n        raise ValueError(\"invalid pagination inputs\")\n    return (rows + size - 1) // size",
+      "pitfalls": [
+        "Integer division discards the remainder.",
+        "Do not confuse percent change with a percent of the new value."
+      ],
+      "note_path": "docs/notes/computing.md"
+    },
+    {
+      "id": "comparisons",
+      "phase": "collections",
+      "title": "Comparisons & branching",
+      "hours": 3,
+      "summary": "Branch on explicit conditions and keep unknown values distinct.",
+      "bridge": "Translate a Power Query conditional column or SQL CASE into readable Python.",
+      "learn": [
+        "Combine conditions with and, or and not.",
+        "Use is None for an absent value.",
+        "Write complete boundary rules before coding."
+      ],
+      "exercise": "Task 07: label missing, negative, zero and positive amounts.",
+      "gate": "None → missing; -1 → invalid; 0 → zero; 1 → valid.",
+      "requires": [
+        "computing"
+      ],
+      "resources": [
+        "boot",
+        "iti",
+        "cs50",
+        "python"
+      ],
+      "chapter": {
+        "number": 7,
+        "start": 8863,
+        "label": "02:27:43",
+        "url": "https://www.youtube.com/watch?v=4M87qBgpafk&t=8863s"
+      },
+      "cs50": "1",
+      "code": "def amount_status(value):\n    if value is None:\n        return \"missing\"\n    if value < 0:\n        return \"invalid\"\n    return \"zero\" if value == 0 else \"valid\"",
+      "pitfalls": [
+        "= assigns; == compares.",
+        "if not value merges zero with missingness."
+      ],
+      "note_path": "docs/notes/comparisons.md"
+    },
+    {
+      "id": "loops",
+      "phase": "collections",
+      "title": "Loops & accumulation",
+      "hours": 3,
+      "summary": "Iteration applies a rule repeatedly while preserving an invariant.",
+      "bridge": "A row loop is useful for learning. Later compare it with SQL and pandas operations.",
+      "learn": [
+        "Use for, range, enumerate, break and continue.",
+        "Accumulate a total with a clear initial value.",
+        "Trace a loop on an empty input and a single record."
+      ],
+      "exercise": "Task 08: sum only nonmissing, nonnegative integer amounts.",
+      "gate": "valid_total([None, 0, -2, 10]) is 10.",
+      "requires": [
+        "comparisons"
+      ],
+      "resources": [
+        "boot",
+        "iti",
+        "cs50",
+        "python"
+      ],
+      "chapter": {
+        "number": 8,
+        "start": 12286,
+        "label": "03:24:46",
+        "url": "https://www.youtube.com/watch?v=4M87qBgpafk&t=12286s"
+      },
+      "cs50": "2",
+      "code": "total = 0\nfor amount in [None, 0, -2, 10]:\n    if amount is not None and amount >= 0:\n        total += amount\nprint(total)",
+      "pitfalls": [
+        "Changing a list while iterating over it can skip entries.",
+        "A while loop needs a path toward termination."
+      ],
+      "note_path": "docs/notes/loops.md"
+    },
+    {
+      "id": "lists",
+      "phase": "collections",
+      "title": "Lists, slices & comprehensions",
+      "hours": 4,
+      "summary": "Sequences preserve order, including repeated values.",
+      "bridge": "A list can hold landing records, but it has no enforced table schema.",
+      "learn": [
+        "Use indexes, slices, append and list comprehensions.",
+        "Understand aliasing, copying and in-place methods.",
+        "Preserve input order when filtering and deduplicating."
+      ],
+      "exercise": "Task 09: return the last n records without changing the input list.",
+      "gate": "latest([1, 2, 3], 2) is [2, 3]; n=0 returns []; negative n is invalid.",
+      "requires": [
+        "loops"
+      ],
+      "resources": [
+        "boot",
+        "iti",
+        "cs50",
+        "python"
+      ],
+      "chapter": {
+        "number": 9,
+        "start": 13454,
+        "label": "03:44:14",
+        "url": "https://www.youtube.com/watch?v=4M87qBgpafk&t=13454s"
+      },
+      "cs50": "2",
+      "code": "records = [\"a\", \"b\", \"c\"]\nlast_two = records[-2:]\nprint(last_two)\nprint(records)  # still intact",
+      "pitfalls": [
+        "sort() changes the list and returns None.",
+        "items[-0:] returns the full list, not an empty list."
+      ],
+      "note_path": "docs/notes/lists.md"
+    },
+    {
+      "id": "dictionaries",
+      "phase": "collections",
+      "title": "Dictionaries & grouping",
+      "hours": 3,
+      "summary": "Mappings connect unique keys to values and support lookup and grouping.",
+      "bridge": "Implement a small GROUP BY yourself before using pandas groupby.",
+      "learn": [
+        "Use items, keys, values and get deliberately.",
+        "Aggregate amounts by category.",
+        "Explain why repeated assignment to a key replaces its previous value."
+      ],
+      "exercise": "Task 10: group transaction piastres by category.",
+      "gate": "Two Food rows with 300 and 200 produce {\"Food\": 500}.",
+      "requires": [
+        "lists"
+      ],
+      "resources": [
+        "boot",
+        "iti",
+        "cs50",
+        "python"
+      ],
+      "chapter": {
+        "number": 10,
+        "start": 20688,
+        "label": "05:44:48",
+        "url": "https://www.youtube.com/watch?v=4M87qBgpafk&t=20688s"
+      },
+      "cs50": "2",
+      "code": "totals = {}\nfor row in [{\"category\": \"Food\", \"amount\": 300}, {\"category\": \"Food\", \"amount\": 200}]:\n    key = row[\"category\"]\n    totals[key] = totals.get(key, 0) + row[\"amount\"]\nprint(totals)",
+      "pitfalls": [
+        "dict.get(key) may return None if the key is absent.",
+        "A dictionary is not a substitute for a validated database primary key."
+      ],
+      "note_path": "docs/notes/dictionaries.md"
+    },
+    {
+      "id": "sets",
+      "phase": "collections",
+      "title": "Sets & reconciliation",
+      "hours": 2,
+      "summary": "Sets answer membership and difference questions without keeping duplicates.",
+      "bridge": "Use set differences to find missing foreign keys before a warehouse load.",
+      "learn": [
+        "Use intersection, union and difference.",
+        "Compare observed keys with a reference set.",
+        "Sort results for deterministic reports."
+      ],
+      "exercise": "Task 11: report profile IDs absent from the reference set.",
+      "gate": "missing_ids([1, 2, 2, 4], [1, 4]) is [2].",
+      "requires": [
+        "dictionaries"
+      ],
+      "resources": [
+        "boot",
+        "iti",
+        "cs50",
+        "python"
+      ],
+      "chapter": {
+        "number": 11,
+        "start": 22791,
+        "label": "06:19:51",
+        "url": "https://www.youtube.com/watch?v=4M87qBgpafk&t=22791s"
+      },
+      "cs50": "2",
+      "code": "observed = {1, 2, 2, 4}\nreference = {1, 4}\nprint(sorted(observed - reference))",
+      "pitfalls": [
+        "set iteration order is not a reporting contract.",
+        "{} creates an empty dict; set() creates an empty set."
+      ],
+      "note_path": "docs/notes/sets.md"
+    },
+    {
+      "id": "errors",
+      "phase": "collections",
+      "title": "Exceptions & honest failures",
+      "hours": 3,
+      "summary": "Expected input problems need useful error messages and a visible policy.",
+      "bridge": "Route invalid landing records to quarantine, as you would in a documented ETL contract.",
+      "learn": [
+        "Distinguish syntax errors, exceptions and incorrect results.",
+        "Catch narrow exceptions near the input boundary.",
+        "Preserve a rejected record and its reason; never silently invent a value."
+      ],
+      "exercise": "Task 12: parse a nonnegative integer count; reject blanks, decimals, negatives and booleans.",
+      "gate": "\"12\" → 12; \"12.5\", \"\", -1 and True raise ValueError.",
+      "requires": [
+        "sets"
+      ],
+      "resources": [
+        "boot",
+        "iti",
+        "cs50",
+        "python"
+      ],
+      "chapter": {
+        "number": 12,
+        "start": 23847,
+        "label": "06:37:27",
+        "url": "https://www.youtube.com/watch?v=4M87qBgpafk&t=23847s"
+      },
+      "cs50": "3",
+      "code": "try:\n    count = int(\"invalid\")\nexcept ValueError as exc:\n    print(f\"Rejected count: {exc}\")",
+      "pitfalls": [
+        "An exception is not evidence that the data should be filled with zero.",
+        "Do not expose API keys or complete sensitive payloads in logs."
+      ],
+      "note_path": "docs/notes/errors.md"
+    },
+    {
+      "id": "modules",
+      "phase": "engineering",
+      "title": "Modules, typing & data classes",
+      "hours": 3,
+      "summary": "Turn a growing script into small importable parts.",
+      "bridge": "Bring schema discipline from SQL into Python interfaces.",
+      "learn": [
+        "Create modules with no work on import.",
+        "Use type hints and a dataclass for a validated record.",
+        "Keep configuration separate from transformations."
+      ],
+      "exercise": "Split the ledger into parsing, validation and reporting modules.",
+      "gate": "Importing a module performs no file writes or network calls.",
+      "requires": [
+        "errors"
+      ],
+      "resources": [
+        "python",
+        "cs50"
+      ],
+      "chapter": null,
+      "cs50": "8",
+      "code": "",
+      "pitfalls": [],
+      "note_path": "docs/notes/modules.md"
+    },
+    {
+      "id": "files",
+      "phase": "engineering",
+      "title": "Files, CSV, JSON & paths",
+      "hours": 3,
+      "summary": "Read and write data with explicit formats and encodings.",
+      "bridge": "Treat landing files as immutable inputs and publish new outputs.",
+      "learn": [
+        "Use pathlib and with to manage files.",
+        "Distinguish CSV strings from typed values.",
+        "Record UTF-8, delimiters, field names and date formats."
+      ],
+      "exercise": "Run the supplied pipeline on data/fixtures/orders.csv and inspect rejects.csv.",
+      "gate": "Missing columns fail clearly; Arabic text round-trips; original input is untouched.",
+      "requires": [
+        "modules"
+      ],
+      "resources": [
+        "python",
+        "cs50"
+      ],
+      "chapter": null,
+      "cs50": "6",
+      "code": "",
+      "pitfalls": [],
+      "note_path": "docs/notes/files.md"
+    },
+    {
+      "id": "tests",
+      "phase": "engineering",
+      "title": "Tests that catch a broken contract",
+      "hours": 3,
+      "summary": "Use examples and failure cases to protect meaningful behavior.",
+      "bridge": "Reconciliation checks become executable tests.",
+      "learn": [
+        "Run the stdlib unit tests before adding a dependency.",
+        "Use pytest later for fixtures and parametrization.",
+        "Test malformed input, duplicates, empty data and reruns."
+      ],
+      "exercise": "Add a regression test for a defect you introduce in a working copy.",
+      "gate": "The test fails with the defect and passes after a targeted repair.",
+      "requires": [
+        "debugging",
+        "files"
+      ],
+      "resources": [
+        "pytest",
+        "cs50"
+      ],
+      "chapter": null,
+      "cs50": "5",
+      "code": "",
+      "pitfalls": [],
+      "note_path": "docs/notes/tests.md"
+    },
+    {
+      "id": "cli",
+      "phase": "engineering",
+      "title": "Command lines, config & logging",
+      "hours": 2,
+      "summary": "Make a script runnable by you, CI, or an orchestrator.",
+      "bridge": "n8n can call a deliberate CLI contract with visible exit status.",
+      "learn": [
+        "Parse arguments with argparse.",
+        "Send summary output to stdout and diagnostic logs to stderr.",
+        "Use environment variables for credentials; never commit secrets."
+      ],
+      "exercise": "Explain every argument of python -m projects.pipeline --help.",
+      "gate": "A new terminal can run the tool and distinguish input failure from a valid empty result.",
+      "requires": [
+        "files"
+      ],
+      "resources": [
+        "python"
+      ],
+      "chapter": null,
+      "cs50": null,
+      "code": "",
+      "pitfalls": [],
+      "note_path": "docs/notes/cli.md"
+    },
+    {
+      "id": "ledger",
+      "phase": "engineering",
+      "title": "Build 01 · EGP expense ledger",
+      "hours": 3,
+      "summary": "Apply the twelve foundations in one small useful program.",
+      "bridge": "Connect to your Telegram/Notion EGP finance-tracker domain using offline fixtures.",
+      "learn": [
+        "Group by category and month.",
+        "Use integer piastres or validated Decimal values.",
+        "Write your own README with known assumptions."
+      ],
+      "exercise": "Build the specification in projects/01-egp-ledger.md before reading reference solutions.",
+      "gate": "Reconcile the output to a hand calculation and demonstrate a rejected input.",
+      "requires": [
+        "dictionaries",
+        "sets",
+        "errors",
+        "tests",
+        "cli"
+      ],
+      "resources": [
+        "iti",
+        "cs50"
+      ],
+      "chapter": null,
+      "cs50": null,
+      "code": "",
+      "pitfalls": [],
+      "note_path": "docs/notes/ledger.md"
+    },
+    {
+      "id": "pandas",
+      "phase": "data",
+      "title": "DataFrames through a SQL lens",
+      "hours": 3,
+      "summary": "Use labeled tabular operations with explicit data types.",
+      "bridge": "Map WHERE → filtering, GROUP BY → groupby and SELECT → column projection.",
+      "learn": [
+        "Inspect schema and null patterns before cleaning.",
+        "Use vectorized transformations and groupby.",
+        "Retain raw values when coercing dates or numbers."
+      ],
+      "exercise": "Reproduce ledger category totals with pandas and compare them with your pure-Python result.",
+      "gate": "Both outputs agree; explain how missing groups and numeric conversion are handled.",
+      "requires": [
+        "ledger"
+      ],
+      "resources": [
+        "pandas"
+      ],
+      "chapter": null,
+      "cs50": null,
+      "code": "",
+      "pitfalls": [],
+      "note_path": "docs/notes/pandas.md"
+    },
+    {
+      "id": "joins",
+      "phase": "data",
+      "title": "Joins, nulls & grain",
+      "hours": 3,
+      "summary": "A join is a cardinality decision, not just a merge call.",
+      "bridge": "Use your star/galaxy modeling knowledge to prevent multiplied facts.",
+      "learn": [
+        "Declare one row per entity before joining.",
+        "Use pandas merge(validate=...) and inspect unmatched keys.",
+        "Separate None, NaN, empty text and business-unknown values."
+      ],
+      "exercise": "Join a fact fixture to a duplicate dimension and make the validation fail.",
+      "gate": "No total changes silently; unmatched keys and duplicated keys have separate reports.",
+      "requires": [
+        "pandas"
+      ],
+      "resources": [
+        "pandas",
+        "iti"
+      ],
+      "chapter": null,
+      "cs50": null,
+      "code": "",
+      "pitfalls": [],
+      "note_path": "docs/notes/joins.md"
+    },
+    {
+      "id": "quality",
+      "phase": "data",
+      "title": "Build 02 · PixelFed quality CLI",
+      "hours": 3,
+      "summary": "Profile landing data and publish a quality report without rewriting source files.",
+      "bridge": "Extend your PixelFed contracts; social posts and profiles are not sales transactions.",
+      "learn": [
+        "Inspect actual PixelFed filenames and grain before choosing checks.",
+        "Report missing IDs, invalid timestamps, duplicates and orphans.",
+        "Write a small JSON report and a quarantine file."
+      ],
+      "exercise": "Follow projects/02-pixelfed-quality.md using a copied sample, never the only landing copy.",
+      "gate": "Every rule has a test and an example; no indiscriminate fillna(0).",
+      "requires": [
+        "joins",
+        "tests",
+        "cli"
+      ],
+      "resources": [
+        "pandas",
+        "python"
+      ],
+      "chapter": null,
+      "cs50": null,
+      "code": "",
+      "pitfalls": [],
+      "note_path": "docs/notes/quality.md"
+    },
+    {
+      "id": "numpy",
+      "phase": "data",
+      "title": "NumPy & time-aware analysis",
+      "hours": 2,
+      "summary": "Understand array shape, masks and units before optimizing.",
+      "bridge": "Use NumPy for numeric work; preserve exact currency separately.",
+      "learn": [
+        "Explain axes, broadcasting and boolean masks.",
+        "Parse timestamps as aware UTC values and display Africa/Cairo when needed.",
+        "Measure a transformation before replacing clear code."
+      ],
+      "exercise": "Compare a list comprehension and an array operation on the same small numeric input.",
+      "gate": "Results agree, units are documented and a timezone assumption is explicit.",
+      "requires": [
+        "pandas"
+      ],
+      "resources": [
+        "numpy"
+      ],
+      "chapter": null,
+      "cs50": null,
+      "code": "",
+      "pitfalls": [],
+      "note_path": "docs/notes/numpy.md"
+    },
+    {
+      "id": "ml",
+      "phase": "data",
+      "title": "Optional · a clean ML bridge",
+      "hours": 3,
+      "summary": "Carry reliable Python into model preparation and evaluation.",
+      "bridge": "Build on your ML direction after data contracts and reproducibility are solid.",
+      "learn": [
+        "Split data before fitting preprocessing.",
+        "Keep transformations inside a pipeline.",
+        "Choose an honest baseline and a metric aligned to the task."
+      ],
+      "exercise": "Write a leakage checklist and a small baseline experiment on an appropriately licensed dataset.",
+      "gate": "The held-out set never fits the imputer, encoder or scaler.",
+      "requires": [
+        "quality",
+        "numpy"
+      ],
+      "resources": [
+        "sklearn"
+      ],
+      "chapter": null,
+      "cs50": null,
+      "code": "",
+      "pitfalls": [],
+      "note_path": "docs/notes/ml.md"
+    },
+    {
+      "id": "http",
+      "phase": "delivery",
+      "title": "APIs, JSON & failure policies",
+      "hours": 3,
+      "summary": "Treat external data as an input that can be late, incomplete or unavailable.",
+      "bridge": "Use your networking and n8n experience to reason about timeouts and rate limits.",
+      "learn": [
+        "Set an explicit timeout and validate response status and schema.",
+        "Use bounded retries only when appropriate; respect Retry-After.",
+        "Persist provider timestamp, fetch timestamp and provenance."
+      ],
+      "exercise": "Design an offline EUR/EGP quote fixture with provider_as_of and fetched_at; label it fixture data.",
+      "gate": "A stale or malformed quote is visible; a cached value is never labeled live.",
+      "requires": [
+        "errors",
+        "files",
+        "tests"
+      ],
+      "resources": [
+        "python"
+      ],
+      "chapter": null,
+      "cs50": null,
+      "code": "",
+      "pitfalls": [],
+      "note_path": "docs/notes/http.md"
+    },
+    {
+      "id": "sql",
+      "phase": "delivery",
+      "title": "SQL loading & idempotency",
+      "hours": 3,
+      "summary": "Loading twice should have a documented, stable outcome.",
+      "bridge": "Start with SQLite, then transfer the pattern to PostgreSQL or SQL Server.",
+      "learn": [
+        "Parameterize SQL and use transactions.",
+        "Choose a business key and an explicit conflict policy.",
+        "Reconcile accepted inputs with stored rows."
+      ],
+      "exercise": "Run python -m projects.pipeline twice on the same fixture database.",
+      "gate": "Stored row count and total stay stable; conflicting duplicate records are rejected.",
+      "requires": [
+        "http",
+        "quality"
+      ],
+      "resources": [
+        "python"
+      ],
+      "chapter": null,
+      "cs50": null,
+      "code": "",
+      "pitfalls": [],
+      "note_path": "docs/notes/sql.md"
+    },
+    {
+      "id": "pipeline",
+      "phase": "delivery",
+      "title": "Build 03 · a rerunnable data pipeline",
+      "hours": 4,
+      "summary": "Connect extraction, validation, quarantine and loading into one traceable run.",
+      "bridge": "Use your ETL/ELT background to explain what each stage promises.",
+      "learn": [
+        "Run the supplied offline reference pipeline and inspect every artifact.",
+        "Add an HTTP adapter as a separate extension, keeping fixture tests offline.",
+        "Export a flat, typed Power BI-ready table and document grain."
+      ],
+      "exercise": "Complete projects/03-api-to-sql.md and compare against projects/pipeline.py.",
+      "gate": "A malformed source header fails before loading; reruns are stable; reject reasons survive.",
+      "requires": [
+        "sql"
+      ],
+      "resources": [
+        "pandas",
+        "python"
+      ],
+      "chapter": null,
+      "cs50": null,
+      "code": "",
+      "pitfalls": [],
+      "note_path": "docs/notes/pipeline.md"
+    },
+    {
+      "id": "orchestration",
+      "phase": "delivery",
+      "title": "n8n, CI & operational handover",
+      "hours": 3,
+      "summary": "Wrap a tested tool with the smallest useful scheduler.",
+      "bridge": "Reuse your n8n queue setup; scheduling does not repair a broken data contract.",
+      "learn": [
+        "Pass configuration through the execution environment.",
+        "Run checks on pull requests and deploy only validated site files.",
+        "Document failure notification, rerun policy and ownership."
+      ],
+      "exercise": "Design a manual/scheduled n8n call to a lab copy of your CLI and record the exit-code policy.",
+      "gate": "Two simultaneous or repeated deliveries have an explicit deduplication strategy.",
+      "requires": [
+        "pipeline",
+        "cli"
+      ],
+      "resources": [
+        "python"
+      ],
+      "chapter": null,
+      "cs50": null,
+      "code": "",
+      "pitfalls": [],
+      "note_path": "docs/notes/orchestration.md"
+    },
+    {
+      "id": "algorithms",
+      "phase": "delivery",
+      "title": "Useful problem-solving patterns",
+      "hours": 3,
+      "summary": "Choose structures by the operation you need to perform.",
+      "bridge": "Use LeetCode as targeted practice for mapping, grouping and lookup.",
+      "learn": [
+        "Compare list scans with set/dict membership.",
+        "Practice frequency counts and two-pointer reasoning.",
+        "Explain time and memory growth using a small example."
+      ],
+      "exercise": "Solve two fresh dictionary/set problems and explain your complexity aloud.",
+      "gate": "You can explain the tradeoff and test empty, repeated and large inputs.",
+      "requires": [
+        "sets",
+        "loops"
+      ],
+      "resources": [
+        "python",
+        "cs50"
+      ],
+      "chapter": null,
+      "cs50": null,
+      "code": "",
+      "pitfalls": [],
+      "note_path": "docs/notes/algorithms.md"
+    },
+    {
+      "id": "publish",
+      "phase": "delivery",
+      "title": "Publish evidence & choose your next step",
+      "hours": 4,
+      "summary": "Finish with a reproducible artifact and a clear account of what you learned.",
+      "bridge": "Link the result to your portfolio, DE roadmap and FDE roadmap.",
+      "learn": [
+        "Show setup, data contract, architecture, tests and one failure case.",
+        "Label synthetic data and distinguish built features from proposed extensions.",
+        "Choose the next DE, FDE or ML branch after reviewing your gaps."
+      ],
+      "exercise": "Use templates/weekly-review.md and templates/project-readme.md for a final review.",
+      "gate": "A reviewer can run the project from the README and trace a total back to input records.",
+      "requires": [
+        "pipeline",
+        "orchestration",
+        "algorithms"
+      ],
+      "resources": [
+        "roadmapsh",
+        "cs50"
+      ],
+      "chapter": null,
+      "cs50": null,
+      "code": "",
+      "pitfalls": [],
+      "note_path": "docs/notes/publish.md"
+    }
+  ],
+  "resources": [
+    {
+      "id": "boot",
+      "title": "Boot.dev · Python for Beginners",
+      "url": "https://www.youtube.com/watch?v=4M87qBgpafk",
+      "language": "English",
+      "kind": "Video course",
+      "role": "Primary course",
+      "note": "7:08:28; taught by TrashPuppy. Twelve verified chapter starts. Notes here are original companion material.",
+      "origin": "User-selected YouTube course",
+      "verification": "Title, channel, duration and chapters checked in the video description on 2026-10-31"
+    },
+    {
+      "id": "iti",
+      "title": "كورس Python منحة ITI",
+      "url": "https://www.youtube.com/playlist?list=PLNFDrRZdysFzSkNWqHZof7NxFHtGNC6bf",
+      "language": "Arabic",
+      "kind": "Video playlist",
+      "role": "Arabic companion",
+      "note": "Use the relevant lesson when a concept needs another explanation. Playlist-level mapping only; no invented lesson timestamps.",
+      "origin": "User-selected ITI playlist",
+      "verification": "User-provided link; also present as V007 in the existing DE resource catalog"
+    },
+    {
+      "id": "cs50",
+      "title": "Harvard CS50P · lectures & problem sets",
+      "url": "https://cs50.harvard.edu/python/",
+      "language": "English",
+      "kind": "Course + exercises",
+      "role": "Practice spine",
+      "note": "Use lectures selectively and solve problem sets yourself. No CS50 solutions are reproduced here.",
+      "origin": "User-selected HarvardX CS50P course",
+      "verification": "Official page checked 2026-10-31"
+    },
+    {
+      "id": "edx",
+      "title": "Your HarvardX CS50P course on edX",
+      "url": "https://learning.edx.org/course/course-v1:HarvardX+CS50P+Python/home",
+      "language": "English",
+      "kind": "Enrolled course",
+      "role": "Your course",
+      "note": "Continue in your enrolled course. Sign-in and access depend on your account; no completion is assumed.",
+      "origin": "User-provided edX course tab",
+      "verification": "Course identity from user-provided HarvardX+CS50P+Python URL"
+    },
+    {
+      "id": "python",
+      "title": "Python language tutorial",
+      "url": "https://docs.python.org/3/tutorial/",
+      "language": "English",
+      "kind": "Documentation",
+      "role": "Reference",
+      "note": "",
+      "origin": "Official documentation",
+      "verification": "Official page checked 2026-10-31"
+    },
+    {
+      "id": "packaging",
+      "title": "PyPA · environments & packages",
+      "url": "https://packaging.python.org/en/latest/tutorials/installing-packages/",
+      "language": "English",
+      "kind": "Documentation",
+      "role": "Reference",
+      "note": "",
+      "origin": "Official documentation",
+      "verification": "Official page checked 2026-10-31"
+    },
+    {
+      "id": "pytest",
+      "title": "pytest · getting started",
+      "url": "https://docs.pytest.org/en/stable/getting-started.html",
+      "language": "English",
+      "kind": "Documentation",
+      "role": "Reference",
+      "note": "",
+      "origin": "Official documentation",
+      "verification": "Official page checked 2026-10-31"
+    },
+    {
+      "id": "pandas",
+      "title": "pandas · getting started tutorials",
+      "url": "https://pandas.pydata.org/docs/getting_started/intro_tutorials/",
+      "language": "English",
+      "kind": "Documentation",
+      "role": "Reference",
+      "note": "",
+      "origin": "Official documentation",
+      "verification": "Official page checked 2026-10-31"
+    },
+    {
+      "id": "numpy",
+      "title": "NumPy · quickstart",
+      "url": "https://numpy.org/doc/stable/user/quickstart.html",
+      "language": "English",
+      "kind": "Documentation",
+      "role": "Reference",
+      "note": "",
+      "origin": "Official documentation",
+      "verification": "Official page checked 2026-10-31"
+    },
+    {
+      "id": "sklearn",
+      "title": "scikit-learn · getting started",
+      "url": "https://scikit-learn.org/stable/getting_started.html",
+      "language": "English",
+      "kind": "Documentation",
+      "role": "Optional ML bridge",
+      "note": "Do after Python and pandas; keep preprocessing inside a train-only fitted pipeline.",
+      "origin": "Official documentation",
+      "verification": "Official page checked 2026-10-31"
+    },
+    {
+      "id": "roadmapsh",
+      "title": "roadmap.sh · Python Developer",
+      "url": "https://roadmap.sh/python",
+      "language": "English",
+      "kind": "Roadmap",
+      "role": "Broad reference",
+      "note": "Visual inspiration. This project has an original layout and curriculum and is not affiliated with roadmap.sh.",
+      "origin": "Official roadmap.sh page",
+      "verification": "Official page checked 2026-10-31"
+    },
+    {
+      "id": "de-010",
+      "title": "Python Basics for Data Science — Cognitive Class",
+      "url": "https://cognitiveclass.ai/courses/python-for-data-science",
+      "language": "English",
+      "kind": "Online course",
+      "role": "Existing DE collection",
+      "note": "Learn syntax and data structures before pandas-heavy work. Check the current free/account requirements.",
+      "origin": "Inherited from data-engineering-learning-roadmap: Ahmed Shaaban mentorship",
+      "verification": "Preserved existing catalog link; current access not independently retested"
+    },
+    {
+      "id": "de-011",
+      "title": "Python for Machine Learning — Arabic playlist",
+      "url": "https://www.youtube.com/playlist?list=PL6-3IRz2XF5UM-FWfQeF1_YhMMa12Eg3s",
+      "language": "Arabic",
+      "kind": "YouTube playlist",
+      "role": "Existing DE collection",
+      "note": "Use for Python fundamentals; focus on transferable syntax rather than the playlist title alone. Free playlist; Arabic.",
+      "origin": "Inherited from data-engineering-learning-roadmap: Ahmed Shaaban mentorship",
+      "verification": "Preserved existing catalog link; current access not independently retested"
+    },
+    {
+      "id": "de-012",
+      "title": "Python Basics — Arabic lesson",
+      "url": "https://www.youtube.com/watch?v=mlbe7Vxr7yA",
+      "language": "Arabic",
+      "kind": "YouTube video",
+      "role": "Existing DE collection",
+      "note": "Use as a short companion, then solve exercises without following the video. Free video; Arabic.",
+      "origin": "Inherited from data-engineering-learning-roadmap: Ahmed Shaaban mentorship",
+      "verification": "Preserved existing catalog link; current access not independently retested"
+    },
+    {
+      "id": "de-014",
+      "title": "NumPy Tutorial — Python Programming",
+      "url": "https://www.youtube.com/playlist?list=PL-osiE80TeTsWmV9i9c58mdDCSskIFdDS",
+      "language": "English",
+      "kind": "YouTube playlist",
+      "role": "Existing DE collection",
+      "note": "Use to understand array operations; prioritise pandas once data manipulation basics are comfortable. Free playlist.",
+      "origin": "Inherited from data-engineering-learning-roadmap: IEEE ManCSC roadmap",
+      "verification": "Preserved existing catalog link; current access not independently retested"
+    },
+    {
+      "id": "de-015",
+      "title": "Introduction to NumPy — DataCamp",
+      "url": "https://app.datacamp.com/learn/courses/introduction-to-numpy",
+      "language": "English",
+      "kind": "Online course",
+      "role": "Existing DE collection",
+      "note": "Choose instead of, not in addition to, a similar NumPy playlist if time is limited. Account/subscription access may be required.",
+      "origin": "Inherited from data-engineering-learning-roadmap: IEEE ManCSC roadmap",
+      "verification": "Preserved existing catalog link; current access not independently retested"
+    },
+    {
+      "id": "de-016",
+      "title": "Data Manipulation with pandas — DataCamp",
+      "url": "https://app.datacamp.com/learn/courses/data-manipulation-with-pandas",
+      "language": "English",
+      "kind": "Online course",
+      "role": "Existing DE collection",
+      "note": "Practise filtering, grouping, derived columns, and tidy transformations. Account/subscription access may be required.",
+      "origin": "Inherited from data-engineering-learning-roadmap: IEEE ManCSC roadmap",
+      "verification": "Preserved existing catalog link; current access not independently retested"
+    },
+    {
+      "id": "de-017",
+      "title": "Joining Data with pandas — DataCamp",
+      "url": "https://app.datacamp.com/learn/courses/joining-data-with-pandas",
+      "language": "English",
+      "kind": "Online course",
+      "role": "Existing DE collection",
+      "note": "Compare pandas joins with SQL JOINs and check cardinality. Account/subscription access may be required.",
+      "origin": "Inherited from data-engineering-learning-roadmap: IEEE ManCSC roadmap",
+      "verification": "Preserved existing catalog link; current access not independently retested"
+    },
+    {
+      "id": "de-018",
+      "title": "Introduction to Importing Data in Python",
+      "url": "https://app.datacamp.com/learn/courses/introduction-to-importing-data-in-python",
+      "language": "English",
+      "kind": "Online course",
+      "role": "Existing DE collection",
+      "note": "Practise importing CSV, text and structured data files. Account/subscription access may be required.",
+      "origin": "Inherited from data-engineering-learning-roadmap: IEEE ManCSC roadmap",
+      "verification": "Preserved existing catalog link; current access not independently retested"
+    },
+    {
+      "id": "de-019",
+      "title": "Intermediate Importing Data in Python",
+      "url": "https://app.datacamp.com/learn/courses/intermediate-importing-data-in-python",
+      "language": "English",
+      "kind": "Online course",
+      "role": "Existing DE collection",
+      "note": "Take after basic file formats and Python exceptions. Account/subscription access may be required.",
+      "origin": "Inherited from data-engineering-learning-roadmap: IEEE ManCSC roadmap",
+      "verification": "Preserved existing catalog link; current access not independently retested"
+    },
+    {
+      "id": "de-020",
+      "title": "Cleaning Data in Python",
+      "url": "https://app.datacamp.com/learn/courses/cleaning-data-in-python",
+      "language": "English",
+      "kind": "Online course",
+      "role": "Existing DE collection",
+      "note": "Apply missing-value, duplicate, type, and validity checks to a messy dataset. Account/subscription access may be required.",
+      "origin": "Inherited from data-engineering-learning-roadmap: IEEE ManCSC roadmap",
+      "verification": "Preserved existing catalog link; current access not independently retested"
+    },
+    {
+      "id": "de-021",
+      "title": "Streamlined Data Ingestion with pandas",
+      "url": "https://app.datacamp.com/learn/courses/streamlined-data-ingestion-with-pandas",
+      "language": "English",
+      "kind": "Online course",
+      "role": "Existing DE collection",
+      "note": "Use the ideas to make repeatable file ingestion and validation steps. Account/subscription access may be required.",
+      "origin": "Inherited from data-engineering-learning-roadmap: IEEE ManCSC roadmap",
+      "verification": "Preserved existing catalog link; current access not independently retested"
+    },
+    {
+      "id": "de-022",
+      "title": "Introduction to Relational Databases in Python",
+      "url": "https://app.datacamp.com/learn/courses/introduction-to-relational-databases-in-python",
+      "language": "English",
+      "kind": "Online course",
+      "role": "Existing DE collection",
+      "note": "Connect Python to SQL databases, query data, and understand database-backed workflows. Account/subscription access may be required.",
+      "origin": "Inherited from data-engineering-learning-roadmap: IEEE ManCSC roadmap",
+      "verification": "Preserved existing catalog link; current access not independently retested"
+    },
+    {
+      "id": "de-032",
+      "title": "ETL and ELT in Python",
+      "url": "https://app.datacamp.com/learn/courses/etl-and-elt-in-python",
+      "language": "English",
+      "kind": "Online course",
+      "role": "Existing DE collection",
+      "note": "Compare transformation timing and implement a small Python ETL/ELT flow. Account/subscription access may be required.",
+      "origin": "Inherited from data-engineering-learning-roadmap: IEEE ManCSC roadmap",
+      "verification": "Preserved existing catalog link; current access not independently retested"
+    },
+    {
+      "id": "de-046",
+      "title": "PySpark in Arabic",
+      "url": "https://www.youtube.com/playlist?list=PLJM7jJIw2GC2tPeonyPveb7Y9AggQSGuo",
+      "language": "Arabic",
+      "kind": "YouTube playlist",
+      "role": "Existing DE collection",
+      "note": "Build a DataFrame transformation and compare results with a small pandas pipeline. Free playlist; Arabic.",
+      "origin": "Inherited from data-engineering-learning-roadmap: Ahmed Shaaban mentorship",
+      "verification": "Preserved existing catalog link; current access not independently retested"
+    },
+    {
+      "id": "de-049",
+      "title": "SparkByExamples — PySpark Tutorials",
+      "url": "https://sparkbyexamples.com/pyspark-tutorial/",
+      "language": "English",
+      "kind": "Tutorial site",
+      "role": "Existing DE collection",
+      "note": "Use as a reference while building joins, aggregations and DataFrame transformations. Free tutorial articles.",
+      "origin": "Inherited from data-engineering-learning-roadmap: Ahmed Shaaban mentorship",
+      "verification": "Preserved existing catalog link; current access not independently retested"
+    }
+  ],
+  "connections": [
+    {
+      "repo": "data-engineering-learning-roadmap",
+      "title": "Data Engineering Roadmap",
+      "role": "The parent learning path",
+      "use": "This repo expands Phase 2 (Python) and supports data quality, orchestration and engineering phases.",
+      "url": "https://github.com/Sohila-Khaled-Abbas/data-engineering-learning-roadmap",
+      "site": "https://sohila-khaled-abbas.github.io/data-engineering-learning-roadmap/"
+    },
+    {
+      "repo": "forward-deployed-engineer-roadmap",
+      "title": "Forward Deployed Engineer Roadmap",
+      "role": "The application & delivery branch",
+      "use": "Use functions, API contracts, SQL and tests before the FastAPI/customer-delivery work.",
+      "url": "https://github.com/Sohila-Khaled-Abbas/forward-deployed-engineer-roadmap",
+      "site": "https://sohila-khaled-abbas.github.io/forward-deployed-engineer-roadmap/"
+    },
+    {
+      "repo": "pixelfed-analytics-engineering",
+      "title": "PixelFed Analytics Engineering",
+      "role": "Apply quality checks",
+      "use": "Add a Python validation CLI around documented landing grain and reference keys.",
+      "url": "https://github.com/Sohila-Khaled-Abbas/pixelfed-analytics-engineering"
+    },
+    {
+      "repo": "n8n-production-queue-setup",
+      "title": "n8n Production Queue Setup",
+      "role": "Orchestrate a tested tool",
+      "use": "Keep Python logic testable outside n8n, then define schedule, retry and failure routing.",
+      "url": "https://github.com/Sohila-Khaled-Abbas/n8n-production-queue-setup"
+    },
+    {
+      "repo": "kickstarter-analytics-engineering",
+      "title": "Kickstarter Analytics Engineering",
+      "role": "Reconcile transformations",
+      "use": "Compare Python cleaning and aggregates with your Power Query pipeline at the same grain.",
+      "url": "https://github.com/Sohila-Khaled-Abbas/kickstarter-analytics-engineering"
+    },
+    {
+      "repo": "udemy-networking-fundamentals",
+      "title": "Networking Fundamentals",
+      "role": "Understand HTTP failures",
+      "use": "Connect API behavior to TCP, TLS, timeouts and response status.",
+      "url": "https://github.com/Sohila-Khaled-Abbas/udemy-networking-fundamentals"
+    },
+    {
+      "repo": "fundamentals-of-operating-systems-labs",
+      "title": "Operating Systems Labs",
+      "role": "Explain runtime behavior",
+      "use": "Relate Python processes, files and memory use to the operating-system labs.",
+      "url": "https://github.com/Sohila-Khaled-Abbas/fundamentals-of-operating-systems-labs"
+    },
+    {
+      "repo": "egyptian-cosmetics-market",
+      "title": "Egyptian Cosmetics Market",
+      "role": "A domain for an extension",
+      "use": "Design a separately labeled synthetic inventory/order scenario; do not claim market measurements.",
+      "url": "https://github.com/Sohila-Khaled-Abbas/egyptian-cosmetics-market"
+    }
+  ],
+  "weeks": [
+    {
+      "number": 1,
+      "title": "Set your baseline",
+      "topics": [
+        "environment",
+        "baseline",
+        "introduction"
+      ],
+      "deliverable": "Interpreter note, diagnostic results and first script"
+    },
+    {
+      "number": 2,
+      "title": "Functions with a contract",
+      "topics": [
+        "variables",
+        "functions",
+        "scope"
+      ],
+      "deliverable": "Three tested pure functions using EGP minor units"
+    },
+    {
+      "number": 3,
+      "title": "Debug with evidence",
+      "topics": [
+        "debugging",
+        "computing",
+        "comparisons"
+      ],
+      "deliverable": "A boundary-case log and a corrected function"
+    },
+    {
+      "number": 4,
+      "title": "Shape and iterate",
+      "topics": [
+        "loops",
+        "lists"
+      ],
+      "deliverable": "List transformations with empty-input checks"
+    },
+    {
+      "number": 5,
+      "title": "Group, reconcile, reject",
+      "topics": [
+        "dictionaries",
+        "sets",
+        "errors"
+      ],
+      "deliverable": "Category totals, orphan IDs and useful error messages"
+    },
+    {
+      "number": 6,
+      "title": "Give the code a home",
+      "topics": [
+        "modules",
+        "files",
+        "cli"
+      ],
+      "deliverable": "A modular CSV/JSON command-line tool"
+    },
+    {
+      "number": 7,
+      "title": "Finish the EGP ledger",
+      "topics": [
+        "tests",
+        "ledger"
+      ],
+      "deliverable": "Build 01 with reconciliation and a clear README"
+    },
+    {
+      "number": 8,
+      "title": "Translate SQL into pandas",
+      "topics": [
+        "pandas",
+        "joins"
+      ],
+      "deliverable": "A join-cardinality experiment and matching totals"
+    },
+    {
+      "number": 9,
+      "title": "Validate PixelFed inputs",
+      "topics": [
+        "quality",
+        "numpy",
+        "ml"
+      ],
+      "deliverable": "Build 02 plus optional ML leakage checklist"
+    },
+    {
+      "number": 10,
+      "title": "Define external contracts",
+      "topics": [
+        "http",
+        "sql"
+      ],
+      "deliverable": "API failure matrix and idempotent fixture load"
+    },
+    {
+      "number": 11,
+      "title": "Build one complete path",
+      "topics": [
+        "pipeline",
+        "orchestration"
+      ],
+      "deliverable": "Build 03, reject report and scheduling/runbook design"
+    },
+    {
+      "number": 12,
+      "title": "Prove and connect the work",
+      "topics": [
+        "algorithms",
+        "publish"
+      ],
+      "deliverable": "Case study, source links and a next-branch decision"
+    }
+  ]
+}

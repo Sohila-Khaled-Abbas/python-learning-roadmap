@@ -1,0 +1,8 @@
+order_id,order_date,category,quantity,unit_price_egp
+O001,2026-10-01,Skincare,2,125.50
+O002,2026-10-02,Haircare,1,80.00
+O003,2026-10-02,عناية بالبشرة,3,10.25
+O001,2026-10-01,Skincare,2,125.50
+O004,2026-10-03,Skincare,2,invalid
+O005,2026-02-30,Haircare,1,90.00
+O006,2026-10-03,Makeup,-1,25.00

@@ -1,0 +1,5 @@
+transaction_id,date,category,amount_egp
+T001,2026-10-01,Food,125.50
+T002,2026-10-01,Transportation,30.00
+T003,2026-10-02,Food,74.50
+T004,2026-10-02,Education,250.00
