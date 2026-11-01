@@ -19,7 +19,7 @@ flowchart TD
 
 - `scripts/build_curriculum.py`: phases, original topic explanations, prerequisites, course starts, weekly tasks and source records.
 - `scripts/curriculum_enrichment.py`: additional user-selected resources, deduplication, official references, twelve optional depth topics and richer explanations.
-- `scripts/seo-pages.mjs`: real HTML lesson, resource and plan pages, canonical metadata, structured data and sitemap generation.
+- `scripts/seo-pages.mjs`: real HTML lesson, resource, plan and coding-lab pages, canonical metadata, structured data and sitemap generation.
 - `web/media.mjs`: shared video/playlist URL validation and click-to-load preview behavior for the map and static guides.
 - `data/inherited-resources.csv`: selected records preserved from the DE learning collection.
 - `web/`: original website UI. `core.mjs` holds progress validation, next-step and filtering logic; `app.mjs` binds UI events.
@@ -47,3 +47,5 @@ The portfolio’s existing public GitHub sync discovers this public repository a
 ## Scope limits
 
 The reference pipeline is a learning artifact: it does not implement network retrieval, multi-worker coordination, production retries, incremental watermarks, migrations or atomic multi-file publication. An HTTP adapter and deployment require the extra work in the Build 03 brief. None of those features are presented as completed.
+
+The [Python coding lab](python-lab.md) runs a pinned Pyodide runtime in a Web Worker. Its guided challenge catalog and Python runner are shared with contract tests. Code drafts and checked history have a separate local backup format; worker Stop and execution deadlines keep ordinary long-running scripts from blocking the UI.

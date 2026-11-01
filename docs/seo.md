@@ -1,6 +1,6 @@
 # SEO and crawlable learning pages
 
-Updated 1 November 2026. This release adds 47 real HTML pages: the home map, 42 lesson pages, the lesson index, the resource library and the weekly plan. The lesson text, practice tasks, exit checks and internal links are present in the HTML response, not only inside a JavaScript modal.
+Updated 1 November 2026. This release adds 47 real HTML pages: the home map, 42 lesson pages, the lesson index, the resource library, the weekly plan and the coding lab. The lesson text, practice tasks, exit checks and internal links are present in the HTML response, not only inside a JavaScript modal.
 
 ## What the build produces
 

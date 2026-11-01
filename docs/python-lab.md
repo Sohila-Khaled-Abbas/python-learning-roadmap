@@ -2,6 +2,8 @@
 
 [Open the coding lab](https://sohila-khaled-abbas.github.io/python-learning-roadmap/lab/).
 
+![Published Python lab with a passing EGP invoice exercise](images/python-lab-20261101.jpg)
+
 The practice loop is **read → change → run → check → vary → explain**. Every roadmap topic and full lesson links to the lab. Matching topics open a relevant challenge; other lessons open the playground, with the lesson example prefilled when available and no playground draft already exists.
 
 ## Practice path
