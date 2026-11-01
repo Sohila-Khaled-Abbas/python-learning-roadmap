@@ -16,3 +16,5 @@ Learning discovery uses names containing `roadmap`, `learning-resources`, `secon
 GitHub schedules are best-effort. This is periodic synchronization, not an instant cross-repository webhook. A new project’s overview can appear in the live collection before its static page is built. Source failures retain the last successful snapshot. Private repos are excluded; activity never marks a project or skill completed.
 
 The DE roadmap receives the Python source and resource links. The FDE roadmap’s Python service-skill node links directly to this branch and publishes through its existing Pages workflow. This task does not change the parent DE site’s separate release controls or hosting audience.
+
+The coding lab is included in the same push-to-Pages workflow. Challenge contracts are shared by the browser and CI; lab drafts and checked history stay in their own browser-local store and have a separate export/import backup. They are not sent to GitHub or the portfolio by the application.

@@ -1,6 +1,6 @@
 # SEO and crawlable learning pages
 
-Updated 1 November 2026. This release adds 46 real HTML pages: the home map, 42 lesson pages, the lesson index, the resource library and the weekly plan. The lesson text, practice tasks, exit checks and internal links are present in the HTML response, not only inside a JavaScript modal.
+Updated 1 November 2026. This release adds 47 real HTML pages: the home map, 42 lesson pages, the lesson index, the resource library and the weekly plan. The lesson text, practice tasks, exit checks and internal links are present in the HTML response, not only inside a JavaScript modal.
 
 ## What the build produces
 
@@ -26,3 +26,5 @@ This site does not invent ratings, course accreditation, video upload dates or r
 - [YouTube embedded player parameters](https://developers.google.com/youtube/player_parameters)
 
 These official references informed the implementation. The editorial lesson structure and user-interface choices are original.
+
+The coding lab adds the 47th canonical page. All 42 lesson pages link to context-specific practice. Its editor loads the Python runtime on demand; the brief, runtime description and navigation are present in the generated HTML.

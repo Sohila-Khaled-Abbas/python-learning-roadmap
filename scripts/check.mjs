@@ -19,7 +19,7 @@ for(const r of d.resources){const url=new URL(r.url);assert.equal(url.protocol,'
 assert.equal(new Set(d.resources.map(r=>r.url)).size,d.resources.length,'resource URLs must be deduplicated');
 const html=await fs.readFile(path.join(root,'dist/index.html'),'utf8');
 for(const match of html.matchAll(/(?:src|href)="([^"#]+)"/g)){const u=match[1];if(/^(https:|data:)/.test(u))continue;assert(!u.startsWith('/'),'asset paths must work under GitHub project subpaths');await fs.access(path.join(root,'dist',u));}
-for(const name of ['app.mjs','core.mjs','styles.css','social-card.png','sitemap.xml','robots.txt','data/roadmap.json'])await fs.access(path.join(root,'dist',name));
+for(const name of ['app.mjs','core.mjs','styles.css','social-card.png','sitemap.xml','robots.txt','data/roadmap.json','lab/index.html','lab.mjs','lab.css','lab-core.mjs','lab-curriculum.mjs','lab-worker.mjs','lab-runner.py'])await fs.access(path.join(root,'dist',name));
 // Verify internal Markdown links (including generated notes) without requiring the network.
 async function scan(dir){for(const entry of await fs.readdir(dir,{withFileTypes:true})){if(['.git','dist','.openai','output','__pycache__'].includes(entry.name))continue;const file=path.join(dir,entry.name);if(entry.isDirectory()){await scan(file);continue;}if(!file.endsWith('.md'))continue;const text=await fs.readFile(file,'utf8');for(const match of text.matchAll(/\]\(([^)\s]+)\)/g)){const u=match[1];if(/^(https?:|#|mailto:)/.test(u))continue;await fs.access(path.resolve(path.dirname(file),u.split('#')[0]));}}}
 await scan(root);

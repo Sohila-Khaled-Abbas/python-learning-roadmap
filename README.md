@@ -82,6 +82,12 @@ The original twelve-week core remains an 84-hour plan. Twelve optional depth top
 
 [Read all lessons](https://sohila-khaled-abbas.github.io/python-learning-roadmap/lessons/) · [Embedded video library](https://sohila-khaled-abbas.github.io/python-learning-roadmap/resources/) · [SEO implementation](docs/seo.md)
 
+## Python coding lab
+
+[Open the browser lab](https://sohila-khaled-abbas.github.io/python-learning-roadmap/lab/) to edit and run real Python with **13 original guided challenges and a free playground**. Practise EGP invoices, data validation, CSV files, API payloads, PixelFed orphan keys, SQLite, generators and an optional pandas transformation. Use progressive hints, behavioral checks, editable synthetic data, input lines, code downloads and separate lab backups.
+
+Each lesson links to relevant practice. Drafts autosave locally; checked history records reference use and the last passing version. Topic exit checks stay under your control. A Web Worker keeps the UI responsive, with Stop and a 12-second execution limit. Python and optional pandas download on first use; there is no Python backend. [Lab guide, runtime limits and validation](docs/python-lab.md).
+
 ## Website features
 
 - An original roadmap.sh-inspired branching map, with responsive list view.
@@ -90,6 +96,7 @@ The original twelve-week core remains an 84-hour plan. Twelve optional depth top
 - ITI Arabic, CS50P and official Python/data documentation alongside the inherited resource catalog.
 - Weekly deliverables and direct links to eight related repositories.
 - Browser-local status and evidence notes, with validated JSON backup import/export.
+- An in-browser Python editor, output console and original guided practice with checks.
 
 Progress is private to the current browser profile and device. It is not account sync. No completion is inferred from page views. External videos and fonts load from their providers; the map works with system-font fallbacks.
 

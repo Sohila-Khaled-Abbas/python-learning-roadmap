@@ -48,10 +48,11 @@ def check():
             assert target.exists(),(file,'missing internal asset/page',ref)
         if '/lessons/' in file.as_posix() and file.parent.name!='lessons':
             content=file.read_text();assert 'Understand the idea' in content and 'EXIT CHECK' in content
+            assert '../../lab/?topic=' + file.parent.name in content, (file, 'lesson must link to contextual practice')
     ns={'s':'http://www.sitemaps.org/schemas/sitemap/0.9'}
     urls={node.text for node in ET.parse(OUT/'sitemap.xml').findall('s:url/s:loc',ns)}
     assert urls==canonicals,('sitemap must match generated canonical pages',urls^canonicals)
-    assert len(pages)==46,len(pages)
+    assert len(pages)==47,len(pages)
     assert '<iframe' not in (OUT/'resources/index.html').read_text(),'resource players should load on request'
     print(f'Validated {len(pages)} unique HTML pages, JSON-LD, local links, crawlable lesson content and sitemap coverage.')
 

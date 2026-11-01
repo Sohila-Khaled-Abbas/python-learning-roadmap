@@ -1,6 +1,6 @@
 # Architecture and deployment
 
-The project is intentionally buildless at runtime: HTML, CSS and JavaScript modules on GitHub Pages. It has no backend, secret store, paid API or user account system. The build now emits 46 crawlable HTML pages alongside the interactive map. The twelve-week core has 30 topics; twelve optional depth topics expand the complete catalog to 42.
+The project is intentionally buildless at runtime: HTML, CSS and JavaScript modules on GitHub Pages. It has no backend, secret store, paid API or user account system. The build now emits 47 crawlable HTML pages alongside the interactive map. The twelve-week core has 30 topics; twelve optional depth topics expand the complete catalog to 42.
 
 ```mermaid
 flowchart TD
