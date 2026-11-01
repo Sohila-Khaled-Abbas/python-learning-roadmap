@@ -36,6 +36,12 @@ def classify_copy(record, category):
 - A shallow copy does not clone nested mutable values.
 - Mutable default arguments persist between calls.
 
+## Understand the idea
+
+Local names help a function behave predictably across calls. Avoid notebook state that makes a cell work only after an undocumented execution order.
+
+Work through the practice with a tiny fixture, predict the result before running it, and record one boundary case. Use the exit check as evidence before moving on.
+
 ## Resources
 
 - [Boot.dev · Python for Beginners](https://www.youtube.com/watch?v=4M87qBgpafk)

@@ -35,6 +35,12 @@ print(sorted(observed - reference))
 - set iteration order is not a reporting contract.
 - {} creates an empty dict; set() creates an empty set.
 
+## Understand the idea
+
+Sets answer membership and difference questions without keeping duplicates. Use set differences to find missing foreign keys before a warehouse load.
+
+Work through the practice with a tiny fixture, predict the result before running it, and record one boundary case. Use the exit check as evidence before moving on.
+
 ## Resources
 
 - [Boot.dev · Python for Beginners](https://www.youtube.com/watch?v=4M87qBgpafk)

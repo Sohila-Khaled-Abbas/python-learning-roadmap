@@ -35,6 +35,12 @@ print(pipeline_message("landing", 4))
 
 - Returning a value and printing a value have different effects.
 
+## Understand the idea
+
+A program is an ordered set of instructions with observable output. A query returns rows; a script can coordinate several steps around those rows.
+
+Work through the practice with a tiny fixture, predict the result before running it, and record one boundary case. Use the exit check as evidence before moving on.
+
 ## Resources
 
 - [Boot.dev · Python for Beginners](https://www.youtube.com/watch?v=4M87qBgpafk)

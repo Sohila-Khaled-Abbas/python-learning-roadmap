@@ -22,6 +22,12 @@ Add a regression test for a defect you introduce in a working copy.
 
 The test fails with the defect and passes after a targeted repair.
 
+## Understand the idea
+
+Choose tests that would catch a meaningful defect: a multiplied join, a lost zero, a conflicting key or a missing transaction rollback. A test that merely repeats the implementation’s calculation is weak evidence.
+
+Keep network and clock behavior injectable. Use a temporary directory or database for I/O tests, then add a focused end-to-end fixture check that reconciles the exported result.
+
 ## Resources
 
 - [pytest · getting started](https://docs.pytest.org/en/stable/getting-started.html)

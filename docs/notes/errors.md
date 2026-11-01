@@ -36,6 +36,12 @@ except ValueError as exc:
 - An exception is not evidence that the data should be filled with zero.
 - Do not expose API keys or complete sensitive payloads in logs.
 
+## Understand the idea
+
+Expected input problems need useful error messages and a visible policy. Route invalid landing records to quarantine, as you would in a documented ETL contract.
+
+Work through the practice with a tiny fixture, predict the result before running it, and record one boundary case. Use the exit check as evidence before moving on.
+
 ## Resources
 
 - [Boot.dev · Python for Beginners](https://www.youtube.com/watch?v=4M87qBgpafk)

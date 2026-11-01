@@ -36,6 +36,12 @@ assert mean_or_none([0, 10]) == 5
 - Do not use bare except to hide a failure.
 - assert can be disabled; it is not a production input-validation boundary.
 
+## Understand the idea
+
+A failing example is evidence you can narrow to a specific cause. Apply your troubleshooting habit: reproduce, inspect, change one thing, verify.
+
+Work through the practice with a tiny fixture, predict the result before running it, and record one boundary case. Use the exit check as evidence before moving on.
+
 ## Resources
 
 - [Boot.dev · Python for Beginners](https://www.youtube.com/watch?v=4M87qBgpafk)

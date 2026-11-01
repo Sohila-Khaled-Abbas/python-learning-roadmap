@@ -22,6 +22,12 @@ Design a manual/scheduled n8n call to a lab copy of your CLI and record the exit
 
 Two simultaneous or repeated deliveries have an explicit deduplication strategy.
 
+## Understand the idea
+
+Wrap a tested tool with the smallest useful scheduler. Reuse your n8n queue setup; scheduling does not repair a broken data contract.
+
+Work through the practice with a tiny fixture, predict the result before running it, and record one boundary case. Use the exit check as evidence before moving on.
+
 ## Resources
 
 - [Python language tutorial](https://docs.python.org/3/tutorial/)

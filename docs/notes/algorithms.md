@@ -22,6 +22,12 @@ Solve two fresh dictionary/set problems and explain your complexity aloud.
 
 You can explain the tradeoff and test empty, repeated and large inputs.
 
+## Understand the idea
+
+Choose structures by the operation you need to perform. Use LeetCode as targeted practice for mapping, grouping and lookup.
+
+Work through the practice with a tiny fixture, predict the result before running it, and record one boundary case. Use the exit check as evidence before moving on.
+
 ## Resources
 
 - [Python language tutorial](https://docs.python.org/3/tutorial/)

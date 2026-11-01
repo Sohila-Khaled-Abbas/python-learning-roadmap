@@ -22,8 +22,16 @@ Write a leakage checklist and a small baseline experiment on an appropriately li
 
 The held-out set never fits the imputer, encoder or scaler.
 
+## Understand the idea
+
+Fit preprocessing on training data and apply the learned transformation to held-out data. Splitting after imputing or scaling leaks information about the evaluation set.
+
+Document the prediction target, observation time and availability of each feature. A feature that becomes known after the business decision can make an apparently strong model unusable.
+
 ## Resources
 
 - [scikit-learn · getting started](https://scikit-learn.org/stable/getting_started.html)
+- [03 تعليم الآلة , القسم الثالث : بايثون Machine learning , Python](https://www.youtube.com/playlist?list=PL6-3IRz2XF5UM-FWfQeF1_YhMMa12Eg3s)
+- [Data Exploration and Preparation](https://www.youtube.com/playlist?list=PLQ1FVkQVumFIEH7dYP_2L6vi_LyjlVsGm)
 
 [Back to the roadmap](../roadmap.md) · [Source and attribution policy](../sources.md)

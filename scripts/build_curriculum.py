@@ -3,6 +3,7 @@ import csv
 import io
 import json
 from pathlib import Path
+from curriculum_enrichment import enrich, youtube_key
 
 ROOT = Path(__file__).resolve().parents[1]
 GITHUB = 'https://github.com/Sohila-Khaled-Abbas/'
@@ -171,7 +172,8 @@ def build():
         for row in csv.DictReader(io.StringIO(inherited.read_text(encoding='utf-8-sig'))):
             rid = 'de-'+row['Resource ID']
             resources.append(resource(rid, row['Title'], row['URL'], 'Arabic' if 'Arabic' in row['Title'] else 'English', row['Format'], 'Existing DE collection', row['How to Use It']+' '+row['Access / Cost Note'], 'Inherited from data-engineering-learning-roadmap: '+row['Source'], 'Preserved existing catalog link; current access not independently retested'))
-    data = dict(schema_version=1, title='Python Learning Roadmap', owner='Sohila Khaled Abbas', updated='2026-10-31', pacing=dict(weeks=12,hours_per_week=7,note='Suggested 84-hour learning budget, not a deadline. The ML node is optional. Reallocate time using your diagnostic and exit checks.'), phases=phases, topics=topics, resources=resources, connections=connections, weeks=[dict(number=i+1,title=w[0],topics=w[1],deliverable=w[2]) for i,w in enumerate(weeks)])
+    enrich(resources, topics, phases)
+    data = dict(schema_version=1, title='Python Learning Roadmap', owner='Sohila Khaled Abbas', updated='2026-11-01', pacing=dict(weeks=12,hours_per_week=7,core_hours=84,extension_hours=36,note='Keep the original 12-week, 84-hour core. Twelve optional depth topics add a separate 36-hour planning budget; select the branches your next project needs.'), phases=phases, topics=topics, resources=resources, connections=connections, weeks=[dict(number=i+1,title=w[0],topics=w[1],deliverable=w[2]) for i,w in enumerate(weeks)])
     (ROOT/'data/roadmap.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     notes=ROOT/'docs/notes'; notes.mkdir(parents=True,exist_ok=True)
     rmap={r['id']:r for r in resources}
@@ -180,6 +182,7 @@ def build():
         text=f"# {t['title']}\n\n{t['summary']}\n\n{watch}\n\n## Connect to your work\n\n{t['bridge']}\n\n## Learn by doing\n\n"+'\n'.join('- '+s for s in t['learn'])+f"\n\n## Original practice\n\n{t['exercise']}\n\n## Exit check\n\n{t['gate']}\n"
         if t['code']: text+='\n## Small original example\n\n```python\n'+t['code']+'\n```\n'
         if t['pitfalls']: text+='\n## Watch for\n\n'+'\n'.join('- '+p for p in t['pitfalls'])+'\n'
+        if t.get('explanation'): text+='\n## Understand the idea\n\n'+'\n\n'.join(t['explanation'])+'\n'
         text+='\n## Resources\n\n'+'\n'.join(f"- [{rmap[r]['title']}]({rmap[r]['url']})" for r in t['resources'])+'\n'
         if t['cs50'] is not None: text+=f"- [CS50P Week {t['cs50']}: lecture and problem set](https://cs50.harvard.edu/python/weeks/{t['cs50']}/). Solve independently; this repo contains no CS50 problem-set answers.\n"
         text+='\n[Back to the roadmap](../roadmap.md) · [Source and attribution policy](../sources.md)\n'

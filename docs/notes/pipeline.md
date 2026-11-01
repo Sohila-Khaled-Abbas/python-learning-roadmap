@@ -22,9 +22,16 @@ Complete projects/03-api-to-sql.md and compare against projects/pipeline.py.
 
 A malformed source header fails before loading; reruns are stable; reject reasons survive.
 
+## Understand the idea
+
+Connect extraction, validation, quarantine and loading into one traceable run. Use your ETL/ELT background to explain what each stage promises.
+
+Work through the practice with a tiny fixture, predict the result before running it, and record one boundary case. Use the exit check as evidence before moving on.
+
 ## Resources
 
 - [pandas · getting started tutorials](https://pandas.pydata.org/docs/getting_started/intro_tutorials/)
 - [Python language tutorial](https://docs.python.org/3/tutorial/)
+- [Python SQLite Tutorial: Build a Python project with a SQLite database](https://www.youtube.com/watch?v=iXYeb2artTE)
 
 [Back to the roadmap](../roadmap.md) · [Source and attribution policy](../sources.md)

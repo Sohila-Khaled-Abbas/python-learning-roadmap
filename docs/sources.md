@@ -46,3 +46,23 @@ The official Python tutorial, PyPA installation guide, pytest getting-started gu
 [roadmap.sh/python](https://roadmap.sh/python) is visual inspiration for a branching, clickable skill path. This site’s layout, styles, curriculum, notes and code are original; no roadmap.sh assets or source code were copied. There is no affiliation or endorsement.
 
 The MIT license applies to original repository content. External videos, platform courses, documentation and resources retain their own terms and copyrights. Links and optional embeds send visitors to the original providers. The fixture dataset is original synthetic data; see its [provenance](../data/fixtures/README.md).
+
+## Enrichment reviewed 1 November 2026
+
+All eleven additional user-supplied YouTube resources are represented once. The machine-readable catalog records their normalized URL, verified page title, topic mappings, intended use and verification limits. The previously inherited machine-learning Python playlist is enriched rather than duplicated. Playlist lesson order and playback permissions remain under the provider’s control. Spoken language is labeled as unverified where the available page title did not establish it. These are companion-resource mappings, not transcript-level claims.
+
+| Selected resource | URL |
+| --- | --- |
+| 03 تعليم الآلة , القسم الثالث : بايثون Machine learning , Python | [Open source](https://www.youtube.com/playlist?list=PL6-3IRz2XF5UM-FWfQeF1_YhMMa12Eg3s) |
+| Python - The Basics - Part 1 \| جحر السوعبان | [Open source](https://www.youtube.com/watch?v=XKQaCF_Om8o) |
+| Python Full Course for Beginners (13 Hours) – From Zero to Hero | [Open source](https://www.youtube.com/watch?v=Rq5gJVxz55Q) |
+| تطبيق عملي: مبادئ تصميم واجهات وتطبيقات علم البيانات \| Streamlit Basics (Dashboards & Data Apps) | [Open source](https://www.youtube.com/watch?v=6aoIQ4bz49w) |
+| Python Object Oriented Programming - شرح للبرمجة كائنية التوجه في بايثون | [Open source](https://www.youtube.com/watch?v=A9kSngn7254) |
+| The Complete Guide to Python Virtual Environments! | [Open source](https://www.youtube.com/watch?v=KxvKCSwlUv8) |
+| Python SQLite Tutorial: Build a Python project with a SQLite database | [Open source](https://www.youtube.com/watch?v=iXYeb2artTE) |
+| تحليل البيانات في بايثون (الدورة المصغرة) \| Python for Data Analysis (Crash Course) | [Open source](https://www.youtube.com/playlist?list=PLWd4nYaF_Vx7Db9uFWf_Df-UrP8ArF4L_) |
+| Python for Data Analysis | [Open source](https://www.youtube.com/playlist?list=PLiEts138s9P0w-WX4Rmml-_zhnBkXLWtc) |
+| Data Exploration and Preparation | [Open source](https://www.youtube.com/playlist?list=PLQ1FVkQVumFIEH7dYP_2L6vi_LyjlVsGm) |
+| Data Visualization using Dash, Plotly, and PowerBI | [Open source](https://www.youtube.com/playlist?list=PLQ1FVkQVumFJpSpiVrgCF0UQxTGrmVnRk) |
+
+The twelve optional depth topics use official Python, PyPA, Apache Arrow, SQLAlchemy, Streamlit, Plotly and Dash documentation. Their canonical links appear with each lesson. The cProfile reference is explicitly scoped to Python 3.12 to align with the runnable baseline; no latest-version upgrade is required. The curriculum and exercises remain original. See [SEO implementation](seo.md) for the Google and YouTube platform references used for crawlable pages and media previews.

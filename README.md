@@ -13,7 +13,7 @@
 | [Boot.dev: Python for Beginners](https://www.youtube.com/watch?v=4M87qBgpafk) | Twelve timestamped chapters | Learn the concept, predict an example, then implement it yourself. |
 | [ITI Python · Arabic](https://www.youtube.com/playlist?list=PLNFDrRZdysFzSkNWqHZof7NxFHtGNC6bf) | Arabic companion | Choose the relevant explanation when a concept is unclear. |
 | [Harvard CS50P](https://cs50.harvard.edu/python/) / [your edX course](https://learning.edx.org/course/course-v1:HarvardX+CS50P+Python/home) | Deliberate practice | Use mapped weeks and solve the problem sets independently. |
-| [Original companion notes](docs/notes/introduction.md) | Explain and connect | Thirty notes relate Python to data, BI, API, and automation work. |
+| [Original companion notes](docs/notes/introduction.md) | Explain and connect | Forty-two notes relate Python to data, BI, API, and automation work. |
 | [Original exercises](exercises/foundations.py) | Prove the foundations | Twelve tasks, one per chapter, with executable contracts and separate reference solutions. |
 | [Existing DE resource collection](data/inherited-resources.csv) | Targeted enrichment | Preserves Python, pandas, NumPy, ingestion and database resources from the parent roadmap. |
 
@@ -74,11 +74,19 @@ Build 01 and Build 02 are specifications for you to implement. Build 03 includes
 
 Inspect `output/summary.json`, `output/rejects.csv`, `output/orders.csv` and `output/orders.sqlite`. The supplied fixture stores three distinct orders totaling **361.75 EGP**; the second run inserts zero additional rows. Identical duplicates are counted; conflicting duplicates are rejected while preserving the existing record. [Fixture provenance](data/fixtures/README.md) explains the synthetic data and expected results. This reference is a single-process teaching tool, with in-memory input and exports; it is not a production pipeline or a live currency monitor.
 
+## Enriched learning library
+
+The roadmap now has **42 topics and 53 resources**, including all eleven newly supplied YouTube links (one existing playlist was deduplicated). Six videos and five playlists cover Arabic/English foundations, OOP, environments, SQLite, data preparation and visualization. Every YouTube resource has a click-to-load player, including the original collection; owner restrictions still have an Open on YouTube fallback.
+
+The original twelve-week core remains an 84-hour plan. Twelve optional depth topics add a separate 36-hour budget: OOP, generators, context managers, typing, Unicode/regex, packaging, time/money, async I/O, profiling, Parquet, database transactions and data apps. Existing topic IDs and progress keys are retained.
+
+[Read all lessons](https://sohila-khaled-abbas.github.io/python-learning-roadmap/lessons/) · [Embedded video library](https://sohila-khaled-abbas.github.io/python-learning-roadmap/resources/) · [SEO implementation](docs/seo.md)
+
 ## Website features
 
 - An original roadmap.sh-inspired branching map, with responsive list view.
-- Thirty topics with prerequisites, original notes, exit checks and relevant source links.
-- Twelve verified course chapter starts and optional click-to-load chapter players.
+- Forty-two topics with prerequisites, original notes, exit checks and relevant source links.
+- Twelve verified core-course chapter starts, plus click-to-load previews for every YouTube video and playlist.
 - ITI Arabic, CS50P and official Python/data documentation alongside the inherited resource catalog.
 - Weekly deliverables and direct links to eight related repositories.
 - Browser-local status and evidence notes, with validated JSON backup import/export.
@@ -96,7 +104,7 @@ npm run check
 npm run dev
 ```
 
-No npm packages are required. `npm run build` regenerates `data/roadmap.json`, thirty notes and the Markdown plans, then copies the website to `dist/`. The editorial source is [scripts/build_curriculum.py](scripts/build_curriculum.py); imported resources live in [data/inherited-resources.csv](data/inherited-resources.csv). Edit those sources before rebuilding generated files.
+No npm packages are required. `npm run build` regenerates `data/roadmap.json`, forty-two notes and the Markdown plans, then copies the website to `dist/`. The editorial sources are [scripts/build_curriculum.py](scripts/build_curriculum.py) and [scripts/curriculum_enrichment.py](scripts/curriculum_enrichment.py); imported resources live in [data/inherited-resources.csv](data/inherited-resources.csv). Edit those sources before rebuilding generated files.
 
 GitHub Actions validates the contracts, prerequisite graph, chapter data, progress logic, local links and static assets, then publishes `dist/` through GitHub Pages. See [architecture and deployment](docs/architecture.md).
 

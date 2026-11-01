@@ -36,6 +36,12 @@ def page_count(rows, size):
 - Integer division discards the remainder.
 - Do not confuse percent change with a percent of the new value.
 
+## Understand the idea
+
+Operators encode arithmetic, precedence and discrete decisions. ETL batching and reconciliation depend on clear units and correct integer arithmetic.
+
+Work through the practice with a tiny fixture, predict the result before running it, and record one boundary case. Use the exit check as evidence before moving on.
+
 ## Resources
 
 - [Boot.dev · Python for Beginners](https://www.youtube.com/watch?v=4M87qBgpafk)

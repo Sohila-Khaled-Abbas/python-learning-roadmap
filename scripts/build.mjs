@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {buildPages} from './seo-pages.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const out=path.join(root,'dist');
 await fs.rm(out,{recursive:true,force:true});await fs.mkdir(out,{recursive:true});
@@ -9,5 +10,5 @@ await fs.mkdir(path.join(out,'data'),{recursive:true});
 await fs.copyFile(path.join(root,'data/roadmap.json'),path.join(out,'data/roadmap.json'));
 await fs.writeFile(path.join(out,'.nojekyll'),'');
 await fs.writeFile(path.join(out,'robots.txt'),'User-agent: *\nAllow: /\nSitemap: https://sohila-khaled-abbas.github.io/python-learning-roadmap/sitemap.xml\n');
-await fs.writeFile(path.join(out,'sitemap.xml'),'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://sohila-khaled-abbas.github.io/python-learning-roadmap/</loc></url></urlset>\n');
+await buildPages(out,JSON.parse(await fs.readFile(path.join(root,'data/roadmap.json'),'utf8')));
 console.log('Built static GitHub Pages site in dist/.');

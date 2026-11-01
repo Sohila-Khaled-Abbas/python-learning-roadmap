@@ -22,6 +22,12 @@ Run the supplied pipeline on data/fixtures/orders.csv and inspect rejects.csv.
 
 Missing columns fail clearly; Arabic text round-trips; original input is untouched.
 
+## Understand the idea
+
+Read and write data with explicit formats and encodings. Treat landing files as immutable inputs and publish new outputs.
+
+Work through the practice with a tiny fixture, predict the result before running it, and record one boundary case. Use the exit check as evidence before moving on.
+
 ## Resources
 
 - [Python language tutorial](https://docs.python.org/3/tutorial/)

@@ -1,6 +1,6 @@
 # Architecture and deployment
 
-The project is intentionally buildless at runtime: HTML, CSS and JavaScript modules on GitHub Pages. It has no backend, secret store, paid API or user account system.
+The project is intentionally buildless at runtime: HTML, CSS and JavaScript modules on GitHub Pages. It has no backend, secret store, paid API or user account system. The build now emits 46 crawlable HTML pages alongside the interactive map. The twelve-week core has 30 topics; twelve optional depth topics expand the complete catalog to 42.
 
 ```mermaid
 flowchart TD
@@ -18,6 +18,9 @@ flowchart TD
 ## Source of truth
 
 - `scripts/build_curriculum.py`: phases, original topic explanations, prerequisites, course starts, weekly tasks and source records.
+- `scripts/curriculum_enrichment.py`: additional user-selected resources, deduplication, official references, twelve optional depth topics and richer explanations.
+- `scripts/seo-pages.mjs`: real HTML lesson, resource and plan pages, canonical metadata, structured data and sitemap generation.
+- `web/media.mjs`: shared video/playlist URL validation and click-to-load preview behavior for the map and static guides.
 - `data/inherited-resources.csv`: selected records preserved from the DE learning collection.
 - `web/`: original website UI. `core.mjs` holds progress validation, next-step and filtering logic; `app.mjs` binds UI events.
 - `exercises/`: learner tasks, intentionally incomplete. `solutions/`: original reference solutions. CI evaluates the reference contract.

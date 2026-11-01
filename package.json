@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "build": "python scripts/build_curriculum.py && node scripts/build.mjs",
-    "check": "node scripts/check.mjs",
-    "test": "node --test tests/progress.test.mjs",
+    "check": "node scripts/check.mjs && python scripts/check_seo.py",
+    "test": "node --test",
     "dev": "node scripts/serve.mjs"
   },
   "engines": {"node": ">=22"}

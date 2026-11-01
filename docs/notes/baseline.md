@@ -22,6 +22,12 @@ Try exercises/foundations.py tasks 02, 03, 07 and 10 before watching the matchin
 
 Explain your solution and edge cases without copying a reference answer.
 
+## Understand the idea
+
+Use existing Python exposure as an advantage and verify it with a small task. Your SQL, Power Query, API and analytics experience gives you useful mental models.
+
+Work through the practice with a tiny fixture, predict the result before running it, and record one boundary case. Use the exit check as evidence before moving on.
+
 ## Resources
 
 - [Boot.dev · Python for Beginners](https://www.youtube.com/watch?v=4M87qBgpafk)

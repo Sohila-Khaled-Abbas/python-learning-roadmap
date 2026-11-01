@@ -22,6 +22,12 @@ Build the specification in projects/01-egp-ledger.md before reading reference so
 
 Reconcile the output to a hand calculation and demonstrate a rejected input.
 
+## Understand the idea
+
+Apply the twelve foundations in one small useful program. Connect to your Telegram/Notion EGP finance-tracker domain using offline fixtures.
+
+Work through the practice with a tiny fixture, predict the result before running it, and record one boundary case. Use the exit check as evidence before moving on.
+
 ## Resources
 
 - [كورس Python منحة ITI](https://www.youtube.com/playlist?list=PLNFDrRZdysFzSkNWqHZof7NxFHtGNC6bf)

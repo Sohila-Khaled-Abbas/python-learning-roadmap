@@ -74,3 +74,22 @@ Weeks 10–12 · APIs, databases, orchestration, and portfolio evidence.
 | [Useful problem-solving patterns](notes/algorithms.md) | Solve two fresh dictionary/set problems and explain your complexity aloud. | You can explain the tradeoff and test empty, repeated and large inputs. |
 | [Publish evidence & choose your next step](notes/publish.md) | Use templates/weekly-review.md and templates/project-readme.md for a final review. | A reviewer can run the project from the README and trace a total back to input records. |
 
+## 06 · Choose your next depth
+
+After the core · optional branches · Twelve focused extensions for reliable data tools and applications.
+
+| Topic | Practice | Exit evidence |
+| --- | --- | --- |
+| [OOP, composition & data classes](notes/oop-design.md) | Create an Order dataclass and a report service that accepts a fixture reader. | A second reader can be substituted without rewriting the aggregation; invalid input is rejected before creating the domain record. |
+| [Iterators, generators & streaming](notes/generators.md) | Replace a fixture reader that returns list(reader) with a generator and compare peak memory on a larger synthetic file. | Both versions produce identical aggregates; the streaming version keeps peak memory bounded by the chosen batch and aggregation state. |
+| [Context managers & decorators](notes/contexts-decorators.md) | Create a timer context and a logging decorator for a fixture transformation. Test cleanup when the transformation raises. | The original error remains visible, cleanup always runs, and a decorated function keeps its name and docstring. |
+| [Type hints, protocols & validation](notes/typing-contracts.md) | Type a reader returning Iterable[Order], then inject a fake reader in tests. Add a malformed JSON input test. | The fake satisfies the interface and the malformed payload is rejected independently of its annotations. |
+| [Regex, Unicode & Arabic text](notes/text-unicode.md) | Validate ASCII order IDs, preserve Arabic category labels, and compare composed/decomposed forms without overwriting the raw value. | Arabic text round-trips; invalid identifiers fail; normalization is recorded and never silently merges distinct business keys. |
+| [Packages & reproducible dependencies](notes/packaging-projects.md) | Package the quality CLI with a console entry point and run it after a clean install in a new virtual environment. | The command works outside the repository working directory and the setup documentation identifies the tested interpreter and dependencies. |
+| [Time zones, money & measurement units](notes/time-money.md) | Design a quote fixture contract with provider_as_of, fetched_at, rate precision, base and quote currency. Test an invalid date and stale quote. | A stale observation is not described as live; time conversion preserves the instant; amounts reconcile at the documented precision. |
+| [Async I/O & bounded concurrency](notes/async-io.md) | Use fake delayed fetches to compare sequential and bounded concurrent retrieval. Inject one timeout and check cancellation cleanup. | Concurrency never exceeds the limit; one timeout follows a documented policy; the test performs no live API calls. |
+| [Profiling, memory & measured optimization](notes/profiling.md) | Profile the fixture pipeline and a scaled synthetic input; compare an eager reader with a bounded streaming design. | The report states input size, environment, elapsed time and peak allocation; outputs remain identical. |
+| [CSV, Parquet & schema evolution](notes/columnar-data.md) | Export a copied synthetic fixture to Parquet, reload selected columns and compare values, nulls and timestamp interpretation. | The round-trip report identifies every type conversion and the consumer can reproduce the expected row count and totals. |
+| [Database transactions & connection lifetimes](notes/sql-transactions.md) | Port a fixture load to a chosen SQLAlchemy driver; fail the second write and prove the intended transaction boundary. | The rollback behavior matches the documented unit of work, duplicate delivery policy remains stable, and credentials stay outside source. |
+| [Data apps with Streamlit, Plotly & Dash](notes/data-apps.md) | Build a read-only quality dashboard from the synthetic CLI output. Show row counts, rejects, freshness and a filterable category chart. | The chart reconciles to the CLI output; empty filters have a clear state; a reviewer can identify the source and limitations. |
+

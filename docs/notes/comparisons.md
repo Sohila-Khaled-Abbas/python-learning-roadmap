@@ -38,6 +38,12 @@ def amount_status(value):
 - = assigns; == compares.
 - if not value merges zero with missingness.
 
+## Understand the idea
+
+Branch on explicit conditions and keep unknown values distinct. Translate a Power Query conditional column or SQL CASE into readable Python.
+
+Work through the practice with a tiny fixture, predict the result before running it, and record one boundary case. Use the exit check as evidence before moving on.
+
 ## Resources
 
 - [Boot.dev · Python for Beginners](https://www.youtube.com/watch?v=4M87qBgpafk)
